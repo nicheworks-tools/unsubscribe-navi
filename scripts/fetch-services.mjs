@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
+
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
