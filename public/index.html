@@ -1,62 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <title>解約どこナビ | Unsubscribe Navi by NicheWorks</title>
+  <meta charset="UTF-8" />
+  <title>解約どこナビ｜各種サービス解約ページ検索</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="主要なオンラインサービスの公式解約・退会ページへのリンク集。広告記事なし、公式導線のみをシンプルに一覧化。"
+    content="サブスク・通販・動画配信など各種サービスの解約ページURLを素早く検索できる無料ツール。公式サイトへの導線のみを掲載。"
   />
-  <meta name="robots" content="index,follow" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <!-- 共通ヘッダー -->
-  <header class="nw-header">
-    <h1 class="nw-title">解約どこナビ</h1>
-    <p class="nw-subtitle">
-      各種オンラインサービスの
-      <strong>公式解約ページ／退会手続きページ</strong>
-      への導線だけをまとめたシンプルなリンク集です。
-    </p>
-    <p class="nw-subtitle">
-      アカウント削除・サブスク解約の場所が分からないときに使ってください。
-      記事化・レビュー・ステマ広告は行いません。
-    </p>
+  <!-- 既存レイアウトを維持＋共通仕様クラス付与 -->
+  <header class="site-header nw-header">
+    <div class="container">
+      <h1>解約どこナビ</h1>
+      <p class="subtitle">公式の解約ページ・退会手続きへの最短リンク集</p>
+    </div>
   </header>
 
-  <main class="nw-main">
+  <!-- 既存 main 構造に共通 ad-slot / nw-main を追加 -->
+  <main class="container nw-main">
     <!-- 上部広告枠（プレースホルダ） -->
     <div class="ad-slot ad-top">
       広告枠（準備中）
       <!-- 審査通過後に広告コードを挿入 -->
     </div>
 
-    <!-- ツール固有コンテンツ -->
-    <section class="tool-section">
-      <div class="search-block">
-        <label for="search-input" class="search-label">
-          サービス名・キーワードで絞り込み
-        </label>
-        <input
-          id="search-input"
-          type="search"
-          class="search-input"
-          placeholder="例：Netflix / Amazonプライム / LINE / Spotify ..."
-          autocomplete="off"
-        />
-      </div>
-
-      <div class="hint-line">
-        ※ リンク先は各サービスの公式サイトまたは公式ヘルプです。表示内容は変更される場合があります。
-      </div>
-
-      <!-- 一覧表示エリア（app.js がここに描画する想定） -->
-      <div id="service-list" class="service-list">
-        <!-- app.js にて data/services.json を読み込み、カード or リストとして描画 -->
-      </div>
+    <section class="intro">
+      <p>
+        「解約ページが見つからない」「退会手続きが分かりづらい」サービスの
+        <strong>公式解約ページへの導線だけ</strong>を集めた一覧です。
+      </p>
+      <p class="note">
+        ※ここから直接解約処理は行いません。各サービス公式サイトに遷移して手続きしてください。<br />
+        ※掲載情報は自動チェックしていますが、必ず遷移先の内容をご確認ください。
+      </p>
     </section>
+
+    <section class="search-section">
+      <!-- ID・挙動は既存app.js互換のまま -->
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="サービス名・用途で検索（例：Netflix, プライム, 音楽）"
+      />
+    </section>
+
+    <!-- 検索結果：既存app.jsがこのIDに描画 -->
+    <section id="results" class="results"></section>
 
     <!-- 下部広告枠（必要に応じて使用） -->
     <div class="ad-slot ad-bottom">
@@ -65,22 +57,24 @@
     </div>
   </main>
 
-  <!-- 共通フッター -->
-  <footer class="nw-footer">
-    <p class="nw-footer-line">
-      © NicheWorks — Small Web Tools for Boring Tasks
-    </p>
-    <p class="nw-footer-line">
-      当サイトには広告が含まれる場合があります。掲載しているリンクや情報の正確性・最新性は保証できません。
-      必ず各サービスの公式情報・注意事項をご確認のうえ、お手続きください。
-    </p>
-    <p class="nw-footer-line">
-      <a href="https://nicheworks.pages.dev/" target="_blank" rel="noopener">
-        nicheworks.pages.dev
-      </a>
-    </p>
+  <!-- 共通フッター仕様に差し替え（内容は解約どこナビ用に調整） -->
+  <footer class="site-footer nw-footer">
+    <div class="container">
+      <p class="nw-footer-line">
+        © NicheWorks — Small Web Tools for Boring Tasks
+      </p>
+      <p class="nw-footer-line">
+        本ツール「解約どこナビ」は、主要サービスの公式解約ページへのリンクのみを掲載します。
+        掲載しているリンクや情報の正確性・最新性は保証できません。必ず各サービスの公式情報をご確認ください。
+      </p>
+      <p class="nw-footer-line">
+        <a href="https://nicheworks.pages.dev/" target="_blank" rel="noopener">
+          nicheworks.pages.dev
+        </a>
+      </p>
+    </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
