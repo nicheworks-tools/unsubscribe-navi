@@ -6,37 +6,338 @@ import * as cheerio from "cheerio";
 const __dirname = new URL(".", import.meta.url).pathname;
 
 const targets = [
+  // --- 動画配信 ---
   {
     id: "netflix",
     name: "Netflix",
     site: "https://www.netflix.com",
-    cancelPage: "https://help.netflix.com/ja/node/407",
+    cancelPage: "https://help.netflix.com/en/node/407",
     keywords: ["動画配信", "サブスク"],
-    notes: "ヘルプセンターから解約手続き。アカウント設定から。"
+    notes: "アカウントページからキャンセル。アプリ削除では解約されない。"
   },
   {
     id: "amazon-prime",
     name: "Amazonプライム",
     site: "https://www.amazon.co.jp",
-    cancelPage: "https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=GFGWZ7FQWQ2ZMDAB",
-    keywords: ["通販", "サブスク"],
-    notes: "アカウントサービス内「プライム会員情報の管理」から解約。"
+    cancelPage: "https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=GTJQ7QZY7QL2HK4Y",
+    keywords: ["通販", "動画配信", "サブスク"],
+    notes: "アカウントサービス → プライム会員情報から解約。"
   },
-    {
+  {
+    id: "hulu-jp",
+    name: "Hulu（日本）",
+    site: "https://www.hulu.jp",
+    cancelPage: "https://help.hulu.jp/hc/ja/articles/360047222553",
+    keywords: ["動画配信"],
+    notes: "プロフィールアイコン → アカウント → 契約を確認・変更。"
+  },
+  {
+    id: "unext",
+    name: "U-NEXT",
+    site: "https://video.unext.jp",
+    cancelPage: "https://help.unext.jp/guide/detail/cancellation-method",
+    keywords: ["動画配信"],
+    notes: "Web版サイトの「アカウント・契約」から「契約内容の確認・解約」。"
+  },
+  {
+    id: "disney-plus",
+    name: "ディズニープラス",
+    site: "https://www.disneyplus.com",
+    cancelPage: "https://help.disneyplus.com/csp?id=csp_article_content&sys_kb_id=cancel",
+    keywords: ["動画配信"],
+    notes: "アカウントページのサブスク管理からキャンセル。"
+  },
+  {
+    id: "abema",
+    name: "ABEMAプレミアム",
+    site: "https://abema.tv",
+    cancelPage: "https://support.abema.tv/hc/ja/articles/360043971551",
+    keywords: ["動画配信"],
+    notes: "登録したストア（App Store/Google Play/カード等）ごとに手続き。"
+  },
+  {
+    id: "ntv",
+    name: "TVer IDプレミアム（将来用プレースホルダ）",
+    site: "https://tver.jp",
+    cancelPage: "",
+    keywords: ["動画配信"],
+    notes: "正式開始時に更新。"
+  },
+
+  // --- 音楽 ---
+  {
     id: "spotify",
-    name: "Spotify",
+    name: "Spotify Premium",
     site: "https://www.spotify.com",
     cancelPage: "https://support.spotify.com/jp/article/cancel-premium/",
     keywords: ["音楽", "サブスク"],
-    notes: "Webブラウザでログインし、アカウントページからキャンセル。"
+    notes: "アカウント情報ページから「プランをキャンセル」。"
   },
   {
-    id: "u-next",
-    name: "U-NEXT",
-    site: "https://video.unext.jp",
-    cancelPage: "https://help.unext.jp/guide/detail/support_kaijo",
-    keywords: ["動画配信", "日本"],
-    notes: "「設定・サポート」→「契約内容の確認・解約」から操作。"
+    id: "apple-music",
+    name: "Apple Music",
+    site: "https://www.apple.com/jp/apple-music/",
+    cancelPage: "https://support.apple.com/ja-jp/HT202039",
+    keywords: ["音楽"],
+    notes: "iPhone設定 or Apple IDのサブスクリプション管理から解約。"
+  },
+  {
+    id: "line-music",
+    name: "LINE MUSIC",
+    site: "https://music.line.me",
+    cancelPage: "https://help2.line.me/music_ios/web/categoryId/20010227",
+    keywords: ["音楽"],
+    notes: "利用環境ごとのストア（App Store/Google Play/LINE Pay）で解約。"
+  },
+  {
+    id: "awa",
+    name: "AWA",
+    site: "https://awa.fm",
+    cancelPage: "https://awa-support.zendesk.com/hc/ja/articles/360000004521",
+    keywords: ["音楽"],
+    notes: "登録に使った決済ストア側で自動更新停止。"
+  },
+  {
+    id: "amazon-music",
+    name: "Amazon Music Unlimited",
+    site: "https://music.amazon.co.jp",
+    cancelPage: "https://www.amazon.co.jp/hz5/arm/cm",
+    keywords: ["音楽"],
+    notes: "Amazonの「会員登録の管理」から対象プランをキャンセル。"
+  },
+
+  // --- クラウド / ストレージ ---
+  {
+    id: "google-one",
+    name: "Google One",
+    site: "https://one.google.com",
+    cancelPage: "https://one.google.com/storage/cancel",
+    keywords: ["クラウド", "ストレージ"],
+    notes: "Google One管理画面から解約。"
+  },
+  {
+    id: "icloud",
+    name: "iCloud+",
+    site: "https://www.icloud.com",
+    cancelPage: "https://support.apple.com/ja-jp/HT207527",
+    keywords: ["クラウド", "ストレージ"],
+    notes: "iOS/ macOSのストレージプラン設定からダウングレード/解約。"
+  },
+  {
+    id: "dropbox",
+    name: "Dropbox",
+    site: "https://www.dropbox.com",
+    cancelPage: "https://help.dropbox.com/ja-jp/account-settings/cancel-dropbox-subscription",
+    keywords: ["クラウド"],
+    notes: "アカウント設定 → プラン → キャンセル。"
+  },
+  {
+    id: "onedrive",
+    name: "Microsoft OneDrive / 365",
+    site: "https://www.microsoft.com",
+    cancelPage: "https://account.microsoft.com/services",
+    keywords: ["クラウド", "オフィス"],
+    notes: "Microsoftアカウントサービスの管理ページから。"
+  },
+  {
+    id: "box",
+    name: "Box",
+    site: "https://www.box.com",
+    cancelPage: "https://support.box.com/hc/en-us/articles/360043695534",
+    keywords: ["クラウド"],
+    notes: "アカウント設定 → 請求情報からキャンセル。"
+  },
+
+  // --- オンラインサービス ---
+  {
+    id: "youtube-premium",
+    name: "YouTube Premium",
+    site: "https://www.youtube.com",
+    cancelPage: "https://support.google.com/youtube/answer/6308278",
+    keywords: ["動画", "音楽"],
+    notes: "購入とメンバーシップ → 定期購入からキャンセル。"
+  },
+  {
+    id: "nicovideo-premium",
+    name: "ニコニコプレミアム",
+    site: "https://www.nicovideo.jp",
+    cancelPage: "https://qa.nicovideo.jp/faq/show/111",
+    keywords: ["動画"],
+    notes: "ニコニコの支払い方法ごとに解約手順が異なる。"
+  },
+  {
+    id: "d-anime",
+    name: "dアニメストア",
+    site: "https://animestore.docomo.ne.jp",
+    cancelPage: "https://animestore.docomo.ne.jp/animestore/CF/faq?type=unsubscribe",
+    keywords: ["動画", "アニメ"],
+    notes: "dアカウントログイン後、解約ページから手続き。"
+  },
+  {
+    id: "d-tv",
+    name: "dTV",
+    site: "https://video.dmkt-sp.jp",
+    cancelPage: "",
+    keywords: ["動画"],
+    notes: "公式案内に従ってdアカウントから解約（サービス状況に応じて更新）。"
+  },
+  {
+    id: "rakuten-tv",
+    name: "Rakuten TV",
+    site: "https://tv.rakuten.co.jp",
+    cancelPage: "",
+    keywords: ["動画"],
+    notes: "マイページ → 定額見放題の解約。"
+  },
+  {
+    id: "okaimono-rakuten",
+    name: "楽天マガジン",
+    site: "https://magazine.rakuten.co.jp",
+    cancelPage: "",
+    keywords: ["雑誌"],
+    notes: "楽天IDでログイン → 契約内容の確認・変更。"
+  },
+
+  // --- 通信 / SIM ---
+  {
+    id: "rakuten-mobile",
+    name: "楽天モバイル",
+    site: "https://network.mobile.rakuten.co.jp",
+    cancelPage: "",
+    keywords: ["格安SIM"],
+    notes: "my 楽天モバイルアプリから解約。MNP転出時の手順あり。"
+  },
+  {
+    id: "povo",
+    name: "povo",
+    site: "https://povo.jp",
+    cancelPage: "",
+    keywords: ["格安SIM"],
+    notes: "povoアプリから解約・MNP手続き。"
+  },
+  {
+    id: "ahamo",
+    name: "ahamo",
+    site: "https://ahamo.com",
+    cancelPage: "",
+    keywords: ["格安SIM"],
+    notes: "ahamoサイト/アプリから解約手続き。"
+  },
+  {
+    id: "linemo",
+    name: "LINEMO",
+    site: "https://www.linemo.jp",
+    cancelPage: "",
+    keywords: ["格安SIM"],
+    notes: "ソフトバンクIDでログインして解約。"
+  },
+
+  // --- オフィス / SaaS ---
+  {
+    id: "adobe-cc",
+    name: "Adobe Creative Cloud",
+    site: "https://www.adobe.com",
+    cancelPage: "https://helpx.adobe.com/jp/manage-account/using/cancel-subscription.html",
+    keywords: ["デザイン", "SaaS"],
+    notes: "アカウント管理ページからプラン変更/解約。違約金に注意。"
+  },
+  {
+    id: "notion",
+    name: "Notion",
+    site: "https://www.notion.so",
+    cancelPage: "https://www.notion.so/help/cancel-a-subscription",
+    keywords: ["ノート", "SaaS"],
+    notes: "Settings → Plans からキャンセル。"
+  },
+  {
+    id: "slack",
+    name: "Slack 有料プラン",
+    site: "https://slack.com",
+    cancelPage: "https://slack.com/help/articles/218915077",
+    keywords: ["チャット", "SaaS"],
+    notes: "Workspace設定 → 請求 → プランをキャンセル。"
+  },
+  {
+    id: "chatgpt-plus",
+    name: "ChatGPT Plus / Team",
+    site: "https://chat.openai.com",
+    cancelPage: "https://help.openai.com/",
+    keywords: ["AI"],
+    notes: "アカウント設定 → プラン管理からキャンセル。"
+  },
+
+  // --- EC / その他サブスク ---
+  {
+    id: "rakuten-prime",
+    name: "楽天市場系サブスク（楽天ポイント系など）",
+    site: "https://www.rakuten.co.jp",
+    cancelPage: "",
+    keywords: ["ポイント"],
+    notes: "各サービスの「定期購読」「会員情報」から解約。"
+  },
+  {
+    id: "wowma",
+    name: "au PAY マーケット系サブスク",
+    site: "https://wowma.jp",
+    cancelPage: "",
+    keywords: ["EC"],
+    notes: "マイページ → 定期・会員サービスから。"
+  },
+  {
+    id: "booklive",
+    name: "BookLive! 読み放題",
+    site: "https://booklive.jp",
+    cancelPage: "",
+    keywords: ["電子書籍"],
+    notes: "マイページ → 読み放題プラン解約。"
+  },
+  {
+    id: "kindle-unlimited",
+    name: "Kindle Unlimited",
+    site: "https://www.amazon.co.jp/kindle-dbs/hz/subscribe/ku",
+    cancelPage: "https://www.amazon.co.jp/hz/mycd/digital-console/contentlist/subscriptions",
+    keywords: ["電子書籍"],
+    notes: "Amazonの「メンバーシップおよび購読」から自動更新オフ。"
+  },
+  {
+    id: "dmm-tv",
+    name: "DMM TV",
+    site: "https://tv.dmm.com",
+    cancelPage: "",
+    keywords: ["動画"],
+    notes: "DMMアカウントの月額サービス管理から解約。"
+  },
+  {
+    id: "dmm-books",
+    name: "DMMブックス 読み放題",
+    site: "https://book.dmm.com",
+    cancelPage: "",
+    keywords: ["電子書籍"],
+    notes: "DMMアカウントサービス一覧から解約。"
+  },
+  {
+    id: "ps-plus",
+    name: "PlayStation Plus",
+    site: "https://www.playstation.com",
+    cancelPage: "",
+    keywords: ["ゲーム"],
+    notes: "PS本体またはブラウザから「サブスクリプション管理」。"
+  },
+  {
+    id: "nintendo-switch-online",
+    name: "Nintendo Switch Online",
+    site: "https://www.nintendo.co.jp",
+    cancelPage: "",
+    keywords: ["ゲーム"],
+    notes: "ニンテンドーアカウントの利用状況から自動継続停止。"
+  },
+  {
+    id: "xbox-game-pass",
+    name: "Xbox Game Pass",
+    site: "https://www.xbox.com",
+    cancelPage: "https://account.microsoft.com/services",
+    keywords: ["ゲーム"],
+    notes: "Microsoftアカウントの定期請求からキャンセル。"
   }
 ];
 
