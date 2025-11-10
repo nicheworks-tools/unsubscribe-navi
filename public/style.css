@@ -135,3 +135,43 @@ body {
   color: #6b7280;
   text-align: center;
 }
+
+.nw-footer {
+  margin-top: 40px;
+  padding: 24px 0 16px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  color: #111;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.ad-slot.ad-bottom {
+  margin-bottom: 16px;
+  min-height: 40px;
+}
+
+.nw-support-link {
+  margin: 12px 0 8px;
+}
+
+.nw-support-link a {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid #000;
+  border-radius: 4px;
+ text-decoration: none;
+  color: #000;
+  font-size: 13px;
+}
+
+.nw-support-link a:hover {
+  background-color: #f5f5f5;
+}
+
+.nw-copy {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #666;
+}
+
