@@ -11,70 +11,94 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <!-- 既存レイアウトを維持＋共通仕様クラス付与 -->
-  <header class="site-header nw-header">
-    <div class="container">
-      <h1>解約どこナビ</h1>
-      <p class="subtitle">公式の解約ページ・退会手続きへの最短リンク集</p>
-    </div>
-  </header>
+<header class="site-header nw-header">
+  <div class="container">
+    <h1>解約どこナビ</h1>
+    <p class="subtitle">公式の解約ページ・退会手続きへの最短リンク集</p>
+  </div>
+</header>
 
-  <!-- 既存 main 構造に共通 ad-slot / nw-main を追加 -->
-  <main class="container nw-main">
-    <!-- 上部広告枠（プレースホルダ） -->
- <!--    <div class="ad-slot ad-top">
-      広告枠（準備中）-->
-      <!-- 審査通過後に広告コードを挿入 -->
-    </div>
+<main class="container nw-main">
+  <!-- 上部広告枠（既存仕様、変更しない） -->
+  <div class="ad-slot ad-top">
+    広告枠（準備中）
+    <!-- 審査通過後に広告コードを挿入 -->
+  </div>
 
-    <section class="intro">
-      <p>
-        「解約ページが見つからない」「退会手続きが分かりづらい」サービスの
-        <strong>公式解約ページへの導線だけ</strong>を集めた一覧です。
-      </p>
-      <p class="note">
-        ※ここから直接解約処理は行いません。各サービス公式サイトに遷移して手続きしてください。<br />
-        ※掲載情報は自動チェックしていますが、必ず遷移先の内容をご確認ください。
-      </p>
-    </section>
+  <section class="intro">
+    <p>
+      「解約ページが見つからない」「退会手続きが分かりづらい」サービスの
+      <strong>公式解約ページへの導線だけ</strong>を集めた一覧です。
+    </p>
+    <p class="note">
+      ※ここから直接解約処理は行いません。各サービス公式サイトに遷移して手続きしてください。<br />
+      ※掲載情報は自動チェックしていますが、必ず遷移先の内容をご確認ください。
+    </p>
+  </section>
 
-    <section class="search-section">
-      <!-- ID・挙動は既存app.js互換のまま -->
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="サービス名・用途で検索（例：Netflix, プライム, 音楽）"
-      />
-    </section>
+  <section class="search-section">
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="サービス名・用途で検索（例：Netflix, プライム, 音楽）"
+    />
+  </section>
 
-    <!-- 検索結果：既存app.jsがこのIDに描画 -->
-    <section id="results" class="results"></section>
+  <section id="results" class="results"></section>
 
-    <!-- 下部広告枠（必要に応じて使用） -->
-    <div class="ad-slot ad-bottom">
-      広告枠（準備中）
-      <!-- 審査通過後に広告コードを挿入 -->
-    </div>
-  </main>
+  <!-- 下部広告枠（既存仕様、変更しない） -->
+  <div class="ad-slot ad-bottom">
+    広告枠（準備中）
+    <!-- 審査通過後に広告コードを挿入 -->
+  </div>
+</main>
 
-  <!-- 共通フッター仕様に差し替え（内容は解約どこナビ用に調整） -->
-  <footer class="site-footer nw-footer">
-    <div class="container">
-      <p class="nw-footer-line">
-        © NicheWorks — Small Web Tools for Boring Tasks
-      </p>
-      <p class="nw-footer-line">
-        本ツール「解約どこナビ」は、主要サービスの公式解約ページへのリンクのみを掲載します。
-        掲載しているリンクや情報の正確性・最新性は保証できません。必ず各サービスの公式情報をご確認ください。
-      </p>
-      <p class="nw-footer-line">
-        <a href="https://nicheworks.pages.dev/" target="_blank" rel="noopener">
-          nicheworks.pages.dev
+<!-- 共通フッター（収益導線付き） -->
+<footer class="nw-footer">
+
+  <!-- 底部広告枠（AdSense / A8 など） -->
+  <div class="ad-slot ad-bottom">
+    <!-- 解約どこナビ用の広告コードをここに挿入 -->
+  </div>
+
+  <!-- 支援リンク（日本→OFUSE / 他→Ko-fi） -->
+  <div class="nw-support">
+    <script>
+      (function() {
+        try {
+          var lang = navigator.language || navigator.userLanguage || "";
+          var isJa = lang.toLowerCase().indexOf("ja") === 0;
+          var link = isJa
+            ? "https://ofuse.me/nicheworks"
+            : "https://ko-fi.com/nicheworks";
+          var label = isJa
+            ? "☕ NicheWorksをOFUSEで支援する"
+            : "☕ Support NicheWorks on Ko-fi";
+
+          document.write(
+            '<p class="nw-support-link">' +
+              '<a href="' + link + '" target="_blank" rel="noopener noreferrer">' +
+                label +
+              '</a>' +
+            '</p>'
+          );
+        } catch (e) {
+          // 失敗時は何もしない
+        }
+      })();
+    </script>
+    <noscript>
+      <p class="nw-support-link">
+        <a href="https://nicheworks.pages.dev/support" target="_blank" rel="noopener noreferrer">
+          Support NicheWorks
         </a>
       </p>
-    </div>
-  </footer>
+    </noscript>
+  </div>
 
-  <script src="./app.js"></script>
+  <p class="nw-copy">© 2025 NicheWorks</p>
+</footer>
+
+<script src="./app.js"></script>
 </body>
 </html>
