@@ -144,8 +144,8 @@
       "音楽"
     ],
     "notes": "Amazonの「会員登録の管理」から対象プランをキャンセル。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Amazon.co.jp"
   },
   {
     "id": "google-one",
