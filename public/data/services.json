@@ -96,8 +96,8 @@
       "サブスク"
     ],
     "notes": "アカウント情報ページから「プランをキャンセル」。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Premiumプランを解約する方法 - SpotifySpotify"
   },
   {
     "id": "apple-music",
@@ -428,8 +428,8 @@
       "電子書籍"
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Amazonサインイン"
   },
   {
     "id": "dmm-tv",
