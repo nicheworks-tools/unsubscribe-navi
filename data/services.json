@@ -23,8 +23,8 @@
       "サブスク"
     ],
     "notes": "アカウントサービス → プライム会員情報から解約。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Amazon.co.jp"
   },
   {
     "id": "hulu-jp",
@@ -232,8 +232,8 @@
       "動画"
     ],
     "notes": "ニコニコの支払い方法ごとに解約手順が異なる。",
-    "status": "ok",
-    "title": "ニコニコヘルプ"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "d-anime",
@@ -428,8 +428,8 @@
       "電子書籍"
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Amazonサインイン"
   },
   {
     "id": "dmm-tv",
