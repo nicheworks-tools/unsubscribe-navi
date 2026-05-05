@@ -368,8 +368,8 @@
       "SaaS"
     ],
     "notes": "Workspace設定 → 請求 → プランをキャンセル。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Slack's Fair Billing Policy | Slack"
   },
   {
     "id": "chatgpt-plus",
@@ -428,8 +428,8 @@
       "電子書籍"
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Amazonサインイン"
   },
   {
     "id": "dmm-tv",
