@@ -108,8 +108,8 @@
       "音楽"
     ],
     "notes": "iPhone設定 or Apple IDのサブスクリプション管理から解約。",
-    "status": "ok",
-    "title": "Appleのサブスクリプションを解約する必要がある場合 - Apple サポート (日本)"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "line-music",
