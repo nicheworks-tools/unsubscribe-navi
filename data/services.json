@@ -23,8 +23,8 @@
       "サブスク"
     ],
     "notes": "アカウントサービス → プライム会員情報から解約。",
-    "status": "ok",
-    "title": "Amazon.co.jp"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "hulu-jp",
@@ -245,8 +245,8 @@
       "アニメ"
     ],
     "notes": "dアカウントログイン後、解約ページから手続き。",
-    "status": "ok",
-    "title": "お問い合わせ種別選択 | dアニメストア"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "d-tv",
