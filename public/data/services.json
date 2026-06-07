@@ -232,8 +232,8 @@
       "動画"
     ],
     "notes": "ニコニコの支払い方法ごとに解約手順が異なる。",
-    "status": "ok",
-    "title": "ニコニコヘルプ"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "d-anime",
@@ -368,8 +368,8 @@
       "SaaS"
     ],
     "notes": "Workspace設定 → 請求 → プランをキャンセル。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Slack's Fair Billing Policy | Slack"
   },
   {
     "id": "chatgpt-plus",
