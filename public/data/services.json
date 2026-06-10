@@ -144,7 +144,7 @@
       "音楽"
     ],
     "notes": "Amazonの「会員登録の管理」から対象プランをキャンセル。",
-    "status": "ok",
+    "status": "check",
     "title": ""
   },
   {
@@ -232,8 +232,8 @@
       "動画"
     ],
     "notes": "ニコニコの支払い方法ごとに解約手順が異なる。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "ニコニコヘルプ"
   },
   {
     "id": "d-anime",
@@ -429,7 +429,7 @@
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
     "status": "ok",
-    "title": ""
+    "title": "Amazonサインイン"
   },
   {
     "id": "dmm-tv",
