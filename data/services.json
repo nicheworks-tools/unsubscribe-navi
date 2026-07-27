@@ -97,7 +97,7 @@
     ],
     "notes": "アカウント情報ページから「プランをキャンセル」。",
     "status": "ok",
-    "title": "Premiumプランを解約する方法 - SpotifyWarning:Spotify"
+    "title": "Premiumプランを解約する方法 - SpotifySpotify"
   },
   {
     "id": "apple-music",
@@ -488,7 +488,7 @@
       "ゲーム"
     ],
     "notes": "Microsoftアカウントの定期請求からキャンセル。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Sign in to your account"
   }
 ]
