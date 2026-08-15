@@ -23,8 +23,8 @@
       "サブスク"
     ],
     "notes": "アカウントサービス → プライム会員情報から解約。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Amazon.co.jp"
   },
   {
     "id": "hulu-jp",
@@ -97,7 +97,7 @@
     ],
     "notes": "アカウント情報ページから「プランをキャンセル」。",
     "status": "ok",
-    "title": "Premiumプランを解約する方法 - SpotifySpotify"
+    "title": "Premiumプランを解約する方法 - SpotifyWarning:Spotify"
   },
   {
     "id": "apple-music",
@@ -429,7 +429,7 @@
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
     "status": "ok",
-    "title": "Amazonサインイン"
+    "title": "Amazon Sign-In"
   },
   {
     "id": "dmm-tv",
