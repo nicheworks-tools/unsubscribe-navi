@@ -23,8 +23,8 @@
       "サブスク"
     ],
     "notes": "アカウントサービス → プライム会員情報から解約。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Amazon.co.jp"
   },
   {
     "id": "hulu-jp",
@@ -221,7 +221,7 @@
     ],
     "notes": "購入とメンバーシップ → 定期購入からキャンセル。",
     "status": "ok",
-    "title": ""
+    "title": "Cancel YouTube Premium or YouTube Music Premium - Android - YouTube Help"
   },
   {
     "id": "nicovideo-premium",
@@ -429,7 +429,7 @@
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
     "status": "ok",
-    "title": "Amazon Sign-In"
+    "title": "サインイン"
   },
   {
     "id": "dmm-tv",
@@ -488,7 +488,7 @@
       "ゲーム"
     ],
     "notes": "Microsoftアカウントの定期請求からキャンセル。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Sign in to your account"
   }
 ]
