@@ -195,8 +195,8 @@
       "オフィス"
     ],
     "notes": "Microsoftアカウントサービスの管理ページから。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Sign in to your account"
   },
   {
     "id": "box",
@@ -429,7 +429,7 @@
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
     "status": "ok",
-    "title": "サインイン"
+    "title": "Amazon Sign-In"
   },
   {
     "id": "dmm-tv",
@@ -488,7 +488,7 @@
       "ゲーム"
     ],
     "notes": "Microsoftアカウントの定期請求からキャンセル。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "Sign in to your account"
   }
 ]
