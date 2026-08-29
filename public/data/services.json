@@ -23,8 +23,8 @@
       "サブスク"
     ],
     "notes": "アカウントサービス → プライム会員情報から解約。",
-    "status": "ok",
-    "title": "Amazon.co.jp"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "hulu-jp",
@@ -195,8 +195,8 @@
       "オフィス"
     ],
     "notes": "Microsoftアカウントサービスの管理ページから。",
-    "status": "ok",
-    "title": "Sign in to your account"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "box",
