@@ -429,7 +429,7 @@
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
     "status": "ok",
-    "title": "Amazon Sign-In"
+    "title": "サインイン"
   },
   {
     "id": "dmm-tv",
@@ -488,7 +488,7 @@
       "ゲーム"
     ],
     "notes": "Microsoftアカウントの定期請求からキャンセル。",
-    "status": "ok",
-    "title": "Sign in to your account"
+    "status": "check",
+    "title": ""
   }
 ]
