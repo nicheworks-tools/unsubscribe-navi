@@ -221,7 +221,7 @@
     ],
     "notes": "購入とメンバーシップ → 定期購入からキャンセル。",
     "status": "ok",
-    "title": ""
+    "title": "Cancel YouTube Premium or YouTube Music Premium - Android - YouTube Help"
   },
   {
     "id": "nicovideo-premium",
@@ -488,7 +488,7 @@
       "ゲーム"
     ],
     "notes": "Microsoftアカウントの定期請求からキャンセル。",
-    "status": "ok",
-    "title": "Sign in to your account"
+    "status": "check",
+    "title": ""
   }
 ]
