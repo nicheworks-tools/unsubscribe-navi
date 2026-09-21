@@ -195,8 +195,8 @@
       "オフィス"
     ],
     "notes": "Microsoftアカウントサービスの管理ページから。",
-    "status": "ok",
-    "title": "Sign in to your account"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "box",
@@ -428,8 +428,8 @@
       "電子書籍"
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
-    "status": "ok",
-    "title": "サインイン"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "dmm-tv",
