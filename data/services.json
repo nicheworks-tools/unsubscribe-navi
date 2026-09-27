@@ -23,8 +23,8 @@
       "サブスク"
     ],
     "notes": "アカウントサービス → プライム会員情報から解約。",
-    "status": "ok",
-    "title": "【Amazon】プライムの解約について - Amazonカスタマーサービス"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "hulu-jp",
@@ -380,8 +380,8 @@
       "AI"
     ],
     "notes": "アカウント設定 → プラン管理からキャンセル。",
-    "status": "ok",
-    "title": "OpenAI Help Center"
+    "status": "check",
+    "title": ""
   },
   {
     "id": "rakuten-prime",
