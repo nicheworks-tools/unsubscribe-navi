@@ -23,8 +23,8 @@
       "サブスク"
     ],
     "notes": "アカウントサービス → プライム会員情報から解約。",
-    "status": "check",
-    "title": ""
+    "status": "ok",
+    "title": "【Amazon】プライムの解約について - Amazonカスタマーサービス"
   },
   {
     "id": "hulu-jp",
@@ -429,7 +429,7 @@
     ],
     "notes": "Amazonの「メンバーシップおよび購読」から自動更新オフ。",
     "status": "ok",
-    "title": "Amazon.co.jp"
+    "title": "サインイン"
   },
   {
     "id": "dmm-tv",
